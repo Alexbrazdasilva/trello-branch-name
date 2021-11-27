@@ -36,12 +36,15 @@ TrelloPowerUp.initialize({
           t.popup({
             title: 'Select Activity',
             url: 'options.html',
-            height: 180,
-            width:  200
+            height: 130,
+            width:  150
           })
         },
         condition: 'always'
       }
     ]
   }
+})
+document.addEventListener('select-type-branch', ({ detail }) => {
+  console.log('My value', detail)
 })
