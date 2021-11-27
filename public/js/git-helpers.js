@@ -6,7 +6,8 @@ const t = window.TrelloPowerUp.iframe({
 })
 
 t.set('card', 'shared', 'branch-name', 'feat/1234')
-
+  .then(() => {
+    console.log('The every tasks completeds')
+  })
 
 document.querySelector('#actions-github-1456').value = 'Alguma coisa'
-
