@@ -1,3 +1,8 @@
+const TrelloInframe = TrelloPowerUp.inframe({
+  appKey: '9f5a91288ed267b276c4e73d145cd326',
+  appName: 'Git Generate Branch Name'
+})
+
 document
   .querySelectorAll('[data-action="select"]')
   .forEach(element => {
@@ -8,4 +13,8 @@ document
       })
       document.dispatchEvent(selectEvent)
     })
+  })
+  document.addEventListener('select-type-branch', ({ detail }) => {
+    console.log('My value', detail)
+    TrelloInframe.alert('Selecionado!', detail)
   })

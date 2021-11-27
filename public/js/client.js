@@ -44,7 +44,7 @@ TrelloPowerUp.initialize({
       }
     ]
   }
-})
-document.addEventListener('select-type-branch', ({ detail }) => {
-  console.log('My value', detail)
+}, {
+  appKey: '9f5a91288ed267b276c4e73d145cd326',
+  appName: 'Git Generate Branch Name'
 })
