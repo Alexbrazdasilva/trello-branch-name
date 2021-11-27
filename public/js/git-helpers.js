@@ -5,7 +5,7 @@ const t = window.TrelloPowerUp.iframe({
   appName: 'Git Generate Branch Name'
 });
 Promise.all([
-  t.get('card', 'public', 'all'),
+  t.get('card', 'shared', 'all'),
   t.get('board', 'shared', 'all')
 ]).then(function (data) {
   console.log(data)
