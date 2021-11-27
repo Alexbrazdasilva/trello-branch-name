@@ -34,10 +34,11 @@ TrelloPowerUp.initialize(
     },
     'card-badges': function (t, options) {
       return t.get('card', 'shared', 'branch-name').then((data) => {
+        console.log(JSON.parse(data.value))
         return [
           {
             icon: 'https://cdn.glitch.com/c69415fd-f70e-4e03-b43b-98b8960cd616%2Frocket-ship-grey.png?1496162964717',
-            text: data ? JSON.parse(data.value)['branch-name'] : 'empty',
+            text: 'empty',
           }
         ];
       });
