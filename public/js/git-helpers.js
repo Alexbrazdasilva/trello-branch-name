@@ -44,7 +44,15 @@ function setValuesInInputs(data) {
 
 t.card('all').then(setHelpers)
 
-t.render(() => {
+window.requestAnimationFrame(() => {
   getDataSaved().then(setValuesInInputs)
+})
+
+t.render(() => {
+
+  setTimeout(() => {
+    getDataSaved().then(setValuesInInputs)
+  }, 10)
+
   t.sizeTo('#git-helpers').done()
 })
