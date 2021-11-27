@@ -29,10 +29,11 @@ function setCommitTitle(title = '', branch) {
 }
 
 function setHelpers({ shortLink, name }) {
-  const formatName = data => `${data['type-branch'] || 'branch'}/${shortLink}`
-  const branchName = getDataSaved().then(formatName)
-  setBranchName(branchName)
-  setHelperBranche(branchName)
+  getDataSaved().then(data => {
+    const formatName = `${data['type-branch'] || 'branch'}/${shortLink}`
+    setBranchName(formatName)
+    setHelperBranche(formatName)
+  })
   setCommitTitle(name, shortLink)
 }
 
@@ -45,4 +46,5 @@ t.card('all').then(setHelpers)
 
 t.render(() => {
   getDataSaved().then(setValuesInInputs)
+  t.sizeTo('#git-helpers').done()
 })
