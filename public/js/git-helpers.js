@@ -25,7 +25,8 @@ t.card('all')
   })
 
 t.render(() => {
-  return t.get('card', 'shared', 'branch-name').then((branchName) => {
-    nameBranch.value = branchName
+  t.get('card', 'shared').then((data) => {
+    nameBranch.value = data['branch-name']
+    commitTitle.value = data['commit-title']
   })
 })

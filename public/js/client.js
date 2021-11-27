@@ -1,19 +1,21 @@
 // Icons
-const grayIcon =
-  'https://cdn.hyperdev.com/us-east-1%3A3d31b21c-01a0-4da2-8827-4bc6e88b7618%2Ficon-gray.svg';
+const icons = {
+  git: 'https://www.svgrepo.com/show/368726/git-branch.svg',
+  commit: 'https://www.svgrepo.com/show/361178/git-commit.svg'
+}
 
 TrelloPowerUp.initialize(
   {
     'card-buttons': function (t, options) {
       return [
         {
-          icon: grayIcon,
+          icon: icons.git,
           text: 'Git Helpers',
           callback: function (t, options) {
             t.popup({
               title: 'Git Helpers',
               url: 'git-helpers.html',
-              height: 40,
+              height: 80,
             });
           },
           condition: 'always',
@@ -34,12 +36,13 @@ TrelloPowerUp.initialize(
     },
     'card-badges': function (t, options) {
       return t.get('card', 'shared', 'branch-name').then((data) => {
-        return [
+        return data ? [
           {
-            icon: 'https://cdn.glitch.com/c69415fd-f70e-4e03-b43b-98b8960cd616%2Frocket-ship-grey.png?1496162964717',
-            text: data ? data : 'undefined',
+            icon: icons.git,
+            text: data
           }
-        ];
+        ]
+        : []
       })
     },
     'card-detail-badges': function (t, options) {
