@@ -24,11 +24,13 @@ function setCommitTitle(title = '', branch) {
   t.set('card', 'shared', 'commit-title', formatedCommitTitle)
 }
 
-function setHelpers({ shortLink, name }) {
+function setHelpers(data) {
+  console.log(data)
+  const { shortLink, name } = data
   const branchName = `fix/${shortLink}`
-    setBranchName(branchName)
-    setHelperBranche(branchName)
-    setCommitTitle(name, shortLink)
+  setBranchName(branchName)
+  setHelperBranche(branchName)
+  setCommitTitle(name, shortLink)
 }
 
 function setValuesInInputs(data) {
