@@ -5,6 +5,12 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" href="https://p.trellocdn.com/power-up.css">
   <style>
+    .section-field {
+      margin-bottom: 1rem;
+    }
+    .section-field .title-section {
+      font-weight: normal;
+    }
     .field-1456 {
       display: flex;
       flex-direction: row;
@@ -20,26 +26,45 @@
 </head>
 
 <body>
-  <div class="field-1456">
-    <input 
-      type="text"
-      id="actions-github-1456"
-    />
-    <button 
-      class="btn-d-block-1456"
-      data-clipboard-target="#actions-github-1456"
-    >Copy</button>
-  </div>
-  <div class="field-1456">
-    <input 
-      type="text"
-      id="commit-github-1456"
-    />
-    <button 
-      class="btn-d-block-1456"
-      data-clipboard-target="#commit-github-1456"
-    >Copy</button>
-  </div>
+  <section class="section-field">
+    <h4 class="title-section">Um nome para a branch desse card:</h4>
+    <div class="field-1456">
+      <input 
+        type="text"
+        id="actions-github-1456"
+      />
+      <button 
+        class="btn-d-block-1456"
+        data-clipboard-target="#actions-github-1456"
+      >Copy</button>
+    </div>
+  </section>
+  <section class="section-field">
+    <h4 class="title-section">Mude para essa branch:</h4>
+    <div class="field-1456">
+      <input 
+        type="text"
+        id="helper-branch-github-1456"
+      />
+      <button 
+        class="btn-d-block-1456"
+        data-clipboard-target="#helper-branch-github-1456"
+      >Copy</button>
+    </div>
+  </section>
+  <section class="section-field">
+    <h4 class="title-section">Uma commit para esse card:</h4>
+    <div class="field-1456">
+      <input 
+        type="text"
+        id="commit-github-1456"
+      />
+      <button 
+        class="btn-d-block-1456"
+        data-clipboard-target="#commit-github-1456"
+      >Copy</button>
+    </div>
+  </section>
   <script src="https://p.trellocdn.com/power-up.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js"></script>
   <script src="js/git-helpers.js"></script>
