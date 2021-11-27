@@ -1,7 +1,8 @@
 // Icons
 const icons = {
   git: 'https://www.svgrepo.com/show/368726/git-branch.svg',
-  commit: 'https://www.svgrepo.com/show/361178/git-commit.svg'
+  commit: 'https://www.svgrepo.com/show/361178/git-commit.svg',
+  select: 'https://www.svgrepo.com/show/361821/select.svg'
 }
 
 TrelloPowerUp.initialize(
@@ -21,7 +22,7 @@ TrelloPowerUp.initialize(
           condition: 'always',
         },
         {
-          icon: grayIcon,
+          icon: icons.select,
           text: 'Select Activity',
           callback: function (t, options) {
             t.popup({
