@@ -11,7 +11,7 @@ t.set('card', 'shared', 'branch-name', 'feat/1234')
   .then(() => {
     console.log('The every tasks completeds')
   })
-t.get('card', 'shared')
+t.card('all')
   .then((data) => {
     console.log(data)
   }
