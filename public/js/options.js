@@ -16,5 +16,5 @@ document
   })
   document.addEventListener('select-type-branch', ({ detail }) => {
     console.log('My value', detail)
-    TrelloInframe.alert('Selecionado!', detail)
+    TrelloInframe.alert({ message: `${detail}` })
   })
