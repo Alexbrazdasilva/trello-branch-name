@@ -1,15 +1,27 @@
-document
-  .querySelectorAll('[data-action="select"]')
-  .forEach(element => {
-    element.addEventListener('click', ({ target }) => {
-      const selectEvent = new CustomEvent('select-type-branch', {
-        bubbles: false,
-        detail: target.dataset.value
-      })
-      document.dispatchEvent(selectEvent)
+const form = document.querySelector('#options-1456')
+const select = document.querySelector('#options-select')
+const t = window.TrelloPowerUp.iframe({
+  appKey: '9f5a91288ed267b276c4e73d145cd326',
+  appName: 'Git Generate Branch Name'
+})
+function sendTypeBranch (event) {
+  event.preventDefault()
+  t.set('card', 'shared', 'type-branch', select.value)
+  .then(() => {
+    t.closePopup()
+  })
+  .then(() => {
+    t.alert({
+      message: 'Successfully 🎉'
     })
   })
-  document.addEventListener('select-type-branch', ({ detail }) => {
-    console.log('My value', detail)
-    TrelloInframe.alert({ message: `${detail}` })
+}
+
+form.addEventListener('submit', sendTypeBranch)
+
+t.render(() => {
+  t.get('card', 'shared', 'type-branch').then((data) => {
+    select.value = data
   })
+  t.sizeTo('#options-1456').done()
+})

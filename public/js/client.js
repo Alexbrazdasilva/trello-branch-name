@@ -28,7 +28,7 @@ TrelloPowerUp.initialize(
             t.popup({
               title: 'Select Activity',
               url: 'options.html',
-              height: 80,
+              height: 200,
             });
           },
           condition: 'always',

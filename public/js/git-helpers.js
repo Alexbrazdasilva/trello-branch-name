@@ -9,6 +9,10 @@ const t = window.TrelloPowerUp.iframe({
   appName: 'Git Generate Branch Name'
 })
 
+function getDataSaved(visibility = 'shared') {
+  return t.get('card', visibility)
+}
+
 function setBranchName(name = '') {
   t.set('card', 'shared', 'branch-name', name)
 }
@@ -24,10 +28,9 @@ function setCommitTitle(title = '', branch) {
   t.set('card', 'shared', 'commit-title', formatedCommitTitle)
 }
 
-function setHelpers(data) {
-  console.log(data)
-  const { shortLink, name } = data
-  const branchName = `fix/${shortLink}`
+function setHelpers({ shortLink, name }) {
+  const formatName = data => `${data['type-branch'] || 'branch'}/${shortLink}`
+  const branchName = getDataSaved().then(formatName)
   setBranchName(branchName)
   setHelperBranche(branchName)
   setCommitTitle(name, shortLink)
@@ -42,5 +45,5 @@ function setValuesInInputs(data) {
 t.card('all').then(setHelpers)
 
 t.render(() => {
-  t.get('card', 'shared').then(setValuesInInputs)
+  getDataSaved().then(setValuesInInputs)
 })
