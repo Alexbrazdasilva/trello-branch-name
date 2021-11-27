@@ -16,7 +16,7 @@ TrelloPowerUp.initialize(
             t.popup({
               title: 'Git Helpers',
               url: 'git-helpers.html',
-              height: 80,
+              height: 160,
             });
           },
           condition: 'always',

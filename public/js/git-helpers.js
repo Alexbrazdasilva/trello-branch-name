@@ -1,7 +1,7 @@
 const clipboard = new ClipboardJS('.btn-d-block-1456')
 const nameBranch = document.querySelector('#actions-github-1456')
 const commitTitle = document.querySelector('#commit-github-1456')
-const helperBranche = document.querySelector('#helper-branche-1456')
+const helperBranche = document.querySelector('#helper-branch-github-1456')
 const Promise = window.TrelloPowerUp.Promise
 
 const t = window.TrelloPowerUp.iframe({
