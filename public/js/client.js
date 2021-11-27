@@ -13,7 +13,8 @@ function generateBranchName(TrelloInstance) {
 
 async function copyInToClipboard(TrelloInstance, options) {
   try {
-    await window.navigator.clipboard.writeText(generateBranchName(TrelloInstance))
+    await navigator.clipboard.writeText(generateBranchName(TrelloInstance))
+    console.log('Copied to clipboard', generateBranchName(TrelloInstance))
   } catch (err) {
     console.error(`Error: ${err}`)
   }
