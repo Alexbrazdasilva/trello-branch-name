@@ -1,5 +1,4 @@
 const Promise = TrelloPowerUp.Promise
-const TrelloInframe = window.TrelloPowerUp.iframe();
 // Icons
 const grayIcon = 'https://cdn.hyperdev.com/us-east-1%3A3d31b21c-01a0-4da2-8827-4bc6e88b7618%2Ficon-gray.svg'
 
@@ -15,9 +14,8 @@ function generateBranchName(TrelloInstance) {
 async function copyInToClipboard(TrelloInstance, options) {
   try {
     await window.navigator.clipboard.writeText(generateBranchName(TrelloInstance))
-    TrelloInframe.alert('Copied!', 'Branch name copied to clipboard.')
   } catch (err) {
-    TrelloInframe.alert(`Error: ${err}`)
+    console.error(`Error: ${err}`)
   }
 }
 
