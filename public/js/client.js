@@ -1,25 +1,25 @@
+const Promise = TrelloPowerUp.Promise
+const TrelloInframe = window.TrelloPowerUp.iframe();
 // Icons
 const grayIcon = 'https://cdn.hyperdev.com/us-east-1%3A3d31b21c-01a0-4da2-8827-4bc6e88b7618%2Ficon-gray.svg'
 
 
 function generateBranchName(TrelloInstance) {
-  TrelloInstance.card('all').then(card => {
-    console.log('card:\n', JSON.stringify(card, null, 2))
+  let branchName = ''
+  TrelloInstance.card('all').then(({ shortLink }) => {
+    branchName = `card/${shortLink}`
   })
-  const hash = '123456'
-  const branchName = `card/${hash}`
   return branchName
 }
 
 async function copyInToClipboard(TrelloInstance, options) {
   try {
     await window.navigator.clipboard.writeText(generateBranchName(TrelloInstance))
-    TrelloInstance.alert('Copied!', 'Branch name copied to clipboard.')
+    TrelloInframe.alert('Copied!', 'Branch name copied to clipboard.')
   } catch (err) {
-    TrelloInstance.alert(`Error: ${err}`)
+    TrelloInframe.alert(`Error: ${err}`)
   }
 }
-const Promise = TrelloPowerUp.Promise
 
 TrelloPowerUp.initialize({
   'card-buttons': function(t, options) {

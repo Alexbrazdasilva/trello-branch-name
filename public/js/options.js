@@ -1,14 +1,14 @@
 document
   .querySelectorAll('[data-action="select"]')
   .forEach(element => {
-    element.addEventListener('click', event => {
+    element.addEventListener('click', ({ target }) => {
       const selectEvent = new CustomEvent('select-type-branch', {
         bubbles: false,
-        payload: event.target.dataset.value
+        payload: target.dataset.value
       })
       document.dispatchEvent(selectEvent)
     })
   })
 document.addEventListener('select-type-branch', event => {
-  console.log('My value', event.payload)
+  console.log('My value', event)
 })
