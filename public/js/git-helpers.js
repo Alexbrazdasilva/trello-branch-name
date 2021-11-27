@@ -24,17 +24,21 @@ function setCommitTitle(title = '', branch) {
   t.set('card', 'shared', 'commit-title', formatedCommitTitle)
 }
 
-t.card('all')
-  .then(({ shortLink, name }) => {
-    const branchName = `fix/${shortLink}`
+function setHelpers({ shortLink, name }) {
+  const branchName = `fix/${shortLink}`
     setBranchName(branchName)
     setHelperBranche(branchName)
     setCommitTitle(name, shortLink)
-  })
+}
+
+function setValuesInInputs(data) {
+  console.log(data)
+  nameBranch.value = data['branch-name']
+  commitTitle.value = data['commit-title']
+}
+
+t.card('all').then(setHelpers)
 
 t.render(() => {
-  t.get('card', 'shared').then((data) => {
-    nameBranch.value = data['branch-name']
-    commitTitle.value = data['commit-title']
-  })
+  t.get('card', 'shared').then(setValuesInInputs)
 })
