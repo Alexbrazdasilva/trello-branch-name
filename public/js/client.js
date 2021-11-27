@@ -40,8 +40,19 @@ TrelloPowerUp.initialize(
             text: data ? data : 'undefined',
           }
         ];
-      });
+      })
     },
+    'card-detail-badges': function (t, options) {
+      return t.get('card', 'shared', 'branch-name').then((data) => {
+        return data ? [
+          {
+            title: 'Branch',
+            text: data ? data : 'undefined',
+          }
+        ] 
+        : []
+      })
+    }
   },
   {
     appKey: '9f5a91288ed267b276c4e73d145cd326',
