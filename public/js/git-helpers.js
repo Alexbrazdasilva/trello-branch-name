@@ -11,9 +11,13 @@ t.set('card', 'shared', 'branch-name', 'feat/1234')
   .then(() => {
     console.log('The every tasks completeds')
   })
-
+t.get('card', 'shared')
+  .then((data) => {
+    console.log(data)
+  }
+)
 t.render(() => {
   return t.get('card', 'shared', 'branch-name').then((branchName) => {
-    nameBranch.value = branchName ? branchName : 'feat/undefined'
+    nameBranch.value = branchName
   })
 })
