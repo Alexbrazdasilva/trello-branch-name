@@ -1,8 +1,15 @@
-// Icons
 const icons = {
   git: 'https://www.svgrepo.com/show/368726/git-branch.svg',
   commit: 'https://www.svgrepo.com/show/361178/git-commit.svg',
   select: 'https://www.svgrepo.com/show/361821/select.svg'
+}
+
+const colors = {
+  ref: 'blue', 
+  feat: 'green',
+  fix: 'red',
+  perf: 'yellow',
+  rel: 'purple'
 }
 
 TrelloPowerUp.initialize(
@@ -36,22 +43,26 @@ TrelloPowerUp.initialize(
       ];
     },
     'card-badges': function (t, options) {
-      return t.get('card', 'shared', 'branch-name').then((data) => {
+      return t.get('card', 'shared').then((data) => {
+        const type = data['type-branch'] ? data['type-branch'] : 'feat'
         return data ? [
           {
             icon: icons.git,
-            text: data
+            text: data['branch-name'],
+            color: colors[type],
           }
         ]
         : []
       })
     },
     'card-detail-badges': function (t, options) {
-      return t.get('card', 'shared', 'branch-name').then((data) => {
+      return t.get('card', 'shared').then((data) => {
+        const type = data['type-branch'] ? data['type-branch'] : 'feat'
         return data ? [
           {
             title: 'Branch',
-            text: data ? data : 'undefined',
+            text: data['branch-name'],
+            color: colors[type]
           }
         ] 
         : []

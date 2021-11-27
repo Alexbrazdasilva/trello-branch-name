@@ -37,7 +37,6 @@ function setHelpers({ shortLink, name }) {
 }
 
 function setValuesInInputs(data) {
-  console.log(data)
   nameBranch.value = data['branch-name']
   commitTitle.value = data['commit-title']
 }
