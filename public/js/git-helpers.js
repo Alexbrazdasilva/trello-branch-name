@@ -3,19 +3,10 @@ const Promise = window.TrelloPowerUp.Promise
 const t = window.TrelloPowerUp.iframe({
   appKey: '9f5a91288ed267b276c4e73d145cd326',
   appName: 'Git Generate Branch Name'
-});
-Promise.all([
-  t.get('card', 'shared', 'all'),
-  t.get('board', 'shared', 'all')
-]).then(function (data) {
-  console.log(data)
-}).catch(function (err) {
-  console.error(err)
-})
-t.card('name', 'shared').then(card => {
-  console.log(card);
 })
 
-// (() => {
-//   document.querySelector('#actions-github-1456').value = 'Alguma coisa'
-// })()
+t.set('card', 'shared', 'branch-name', 'feat/1234')
+
+
+document.querySelector('#actions-github-1456').value = 'Alguma coisa'
+
