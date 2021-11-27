@@ -47,9 +47,14 @@ TrelloPowerUp.initialize(
         const type = data['type-branch'] ? data['type-branch'] : 'feat'
         return data ? [
           {
-            icon: icons.git,
-            text: data['branch-name'],
-            color: colors[type],
+            dinamyc: function() {
+              return {
+                title: 'Branch',
+                text: data['branch-name'],
+                color: colors[type],
+                refresh: 30
+              }
+            },
           }
         ]
         : []
@@ -60,9 +65,13 @@ TrelloPowerUp.initialize(
         const type = data['type-branch'] ? data['type-branch'] : 'feat'
         return data ? [
           {
-            title: 'Branch',
-            text: data['branch-name'],
-            color: colors[type]
+            dinamyc: function() {
+              return {
+                title: 'Branch',
+                text: data['branch-name'],
+                color: colors[type]
+              }
+            },
           }
         ] 
         : []
