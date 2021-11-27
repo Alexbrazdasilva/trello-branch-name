@@ -1,6 +1,6 @@
 const clipboard = new ClipboardJS('.btn-d-block-1456')
-const Promises = TrelloPowerUp.Promise
-const t = TrelloPowerUp.inframe()
+const Promises = window.TrelloPowerUp.Promise
+var t = window.TrelloPowerUp.iframe();
 
 
 Promises.All([
