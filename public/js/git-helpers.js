@@ -53,7 +53,7 @@ function setCommitTitle(title = '', idCard) {
 function setHelpers({ shortLink, name, id }) {
   getDataSaved().then(data => {
     const formatName = `${data['type-branch'] || 'branch'}/${shortLink}`
-    setBranchName()
+    setBranchName(formatName)
     setHelperBranche(formatName)
   })
   setCommitTitle(name, id)
