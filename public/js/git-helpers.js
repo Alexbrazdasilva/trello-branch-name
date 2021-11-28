@@ -50,13 +50,13 @@ function setCommitTitle(title = '', idCard) {
  *
  * @param {*} { shortLink, name }
  */
-function setHelpers({ shortLink, name, id }) {
+function setHelpers({ idShort, name }) {
   getDataSaved().then(data => {
-    const formatName = `${data['type-branch'] || 'branch'}/${shortLink}`
+    const formatName = `${data['type-branch']}/${idShort}`
     setBranchName(formatName)
     setHelperBranche(formatName)
   })
-  setCommitTitle(name, id)
+  setCommitTitle(name, idShort)
 }
 /**
  * Add values in inputs
