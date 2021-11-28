@@ -40,9 +40,9 @@ function setHelperBranche(branch = '') {
  * @param {string} [title='']
  * @param {*} branch
  */
-function setCommitTitle(title = '', branch) {
+function setCommitTitle(title = '', idCard) {
   const titleCommit = title.substring(0, 45)
-  const formatedCommitTitle = `${titleCommit} [${branch}]`
+  const formatedCommitTitle = `${titleCommit} #${idCard}`
   t.set('card', 'shared', 'commit-title', formatedCommitTitle)
 }
 /**
@@ -50,13 +50,13 @@ function setCommitTitle(title = '', branch) {
  *
  * @param {*} { shortLink, name }
  */
-function setHelpers({ shortLink, name }) {
+function setHelpers({ shortLink, name, id }) {
   getDataSaved().then(data => {
     const formatName = `${data['type-branch'] || 'branch'}/${shortLink}`
-    setBranchName(formatName)
+    setBranchName()
     setHelperBranche(formatName)
   })
-  setCommitTitle(name, shortLink)
+  setCommitTitle(name, id)
 }
 /**
  * Add values in inputs
