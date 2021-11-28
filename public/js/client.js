@@ -12,8 +12,7 @@ const colors = {
   rel: 'purple'
 }
 
-function getCardButtonsForDevelopment() {
-  return [
+const actionsForDeveloperCards = [
     {
       icon: icons.git,
       text: 'Git Helpers',
@@ -38,16 +37,15 @@ function getCardButtonsForDevelopment() {
       },
       condition: 'always',
     },
-  ]
-}
+]
 
 TrelloPowerUp.initialize(
   {
     'card-buttons': function (t, options) {
       return t.list('name').then(name => {
-        const titleForResources = ['Recursos do projeto', 'Project Resources', 'Project BackLog']
+        const titleForResources = ['Recursos do projeto', 'Project Resources', 'Project Backlog']
 
-        return !titleForResources.includes(name) ?  getCardButtonsForDevelopment : []
+        return !titleForResources.includes(name) ?  actionsForDeveloperCards : []
       })
     },
     'card-badges': function (t, options) {
