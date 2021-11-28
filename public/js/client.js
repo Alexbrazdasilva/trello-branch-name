@@ -12,41 +12,35 @@ const colors = {
   rel: 'purple'
 }
 
-const actionsForDeveloperCards = [
-    {
-      icon: icons.git,
-      text: 'Git Helpers',
-      callback: function (t, options) {
-        t.popup({
-          title: 'Git Helpers',
-          url: 'git-helpers.html',
-          height: 160,
-        });
-      },
-      condition: 'always',
-    },
-    {
-      icon: icons.select,
-      text: 'Select Activity',
-      callback: function (t, options) {
-        t.popup({
-          title: 'Select Activity',
-          url: 'options.html',
-          height: 200,
-        });
-      },
-      condition: 'always',
-    },
-]
-
 TrelloPowerUp.initialize(
   {
     'card-buttons': function (t, options) {
-      return t.list('name').then(name => {
-        const titleForResources = ['Recursos do projeto', 'Project Resources', 'Project Backlog']
-
-        return !titleForResources.includes(name) ?  actionsForDeveloperCards : []
-      })
+      return [
+        {
+          icon: icons.git,
+          text: 'Git Helpers',
+          callback: function (t, options) {
+            t.popup({
+              title: 'Git Helpers',
+              url: 'git-helpers.html',
+              height: 160,
+            });
+          },
+          condition: 'always',
+        },
+        {
+          icon: icons.select,
+          text: 'Select Activity',
+          callback: function (t, options) {
+            t.popup({
+              title: 'Select Activity',
+              url: 'options.html',
+              height: 200,
+            });
+          },
+          condition: 'always',
+        },
+      ];
     },
     'card-badges': function (t, options) {
       return t.get('card', 'shared').then((data) => {
