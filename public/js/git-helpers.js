@@ -68,10 +68,10 @@ function setValuesInInputs(data) {
   commitTitle.value = data['commit-title']
 }
 
-window.requestAnimationFrame(() => {
+setTimeout(() => {
   t.card('all').then(setHelpers)
   getDataSaved().then(setValuesInInputs)
-})
+}, 0)
 
 t.render(() => {
   setTimeout(() => {
